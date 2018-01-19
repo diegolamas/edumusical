@@ -295,3 +295,13 @@ textarea {
     width:  200px;
     height: 100px;
 }
+
+.wavesurfer-region {
+    border-radius: 50%;
+    width: 10px;
+    position: absolute;
+    z-index: 2;
+    height: 10px;
+    top: 45%;
+    cursor: move;
+}

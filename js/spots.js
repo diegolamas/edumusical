@@ -79,26 +79,22 @@
             for (var b in this.attributes) a.setAttribute("data-region-" + b, this.attributes[b]);
             this.wrapper.scrollWidth;
             if (this.style(a, {
-                    position: "absolute",
-                    zIndex: 2,
-                    height: "100%",
-                    top: "0px"
                 }), this.resize) {
                 var c = a.appendChild(document.createElement("handle")),
                     d = a.appendChild(document.createElement("handle"));
                 c.className = "wavesurfer-handle wavesurfer-handle-start", d.className = "wavesurfer-handle wavesurfer-handle-end";
-                var e = {
-                    cursor: "col-resize",
-                    position: "absolute",
-                    left: "0px",
-                    top: "0px",
-                    width: "1%",
-                    maxWidth: "4px",
-                    height: "100%"
-                };
-                this.style(c, e), this.style(d, e), this.style(d, {
-                    left: "100%"
-                })
+                // var e = {
+                //     cursor: "col-resize",
+                //     position: "absolute",
+                //     left: "0px",
+                //     top: "0px",
+                //     width: "1%",
+                //     maxWidth: "4px",
+                //     height: "100%"
+                // };
+                // this.style(c, e), this.style(d, e), this.style(d, {
+                //     left: "100%"
+                // })
             }
             this.element = this.wrapper.appendChild(a), this.updateRender(), this.bindEvents(a)
         },
@@ -118,7 +114,7 @@
                     d = Math.round(this.end / a * b) - c;
                 this.style(this.element, {
                     left: c + "px",
-                    width: d + "px",
+                    width: "10px", //d + "px",
                     backgroundColor: this.color,
                     cursor: this.drag ? "move" : "default"
                 });

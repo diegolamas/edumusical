@@ -18,10 +18,18 @@ var dragover_handler = function(e) {
     console.log("OVER");
 };
 
-var add_region = function(sec) {
+var add_region_green = function(sec) {
     wavesurfer.addRegion({
-        start: sec - 0.25, // time in seconds
-        end: sec + 0.25, // time in seconds
-        color: 'hsla(100, 100%, 30%, 0.1)'
+        start: sec, // time in seconds
+        end: sec, // time in seconds
+        color: 'hsla(100, 100%, 30%, 0.80)'
+    });
+}
+
+var add_region_blue = function(sec) {
+    wavesurfer.addRegion({
+        start: sec, // time in seconds
+        end: sec, // time in seconds
+        color: 'hsla(223, 100%, 44%, 0.80)'
     });
 }
