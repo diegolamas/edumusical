@@ -21,12 +21,16 @@
         <![endif]-->
 
         <div class="text-center">
-            <h1>Hola</h1>
-            <button class="btn btn-sm btn-primary" onclick="add_region_green(wavesurfer.getCurrentTime());">
+            <h1>Bla bla</h1>
+            <button class="btn btn-sm btn-green" onclick="add_region_green(wavesurfer.getCurrentTime());">
                 <i class="fas fa-plus"></i>
                 Add
             </button>
-            <button class="btn btn-sm btn-sucess" onclick="add_region_blue(wavesurfer.getCurrentTime());">
+            <button class="btn btn-sm btn-blue" onclick="add_region_blue(wavesurfer.getCurrentTime());">
+                <i class="fas fa-plus"></i>
+                Add
+            </button>
+            <button class="btn btn-sm btn-red" onclick="add_region_red(wavesurfer.getCurrentTime());">
                 <i class="fas fa-plus"></i>
                 Add
             </button>
@@ -40,9 +44,23 @@
                 Play
             </button>
         </div>
-        <div class="text-center" id="drop-area" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
-            <strong>Drag one or more files to this Drop Zone ...</strong>
-        </div>
+
+        <p class="row">
+            <div class="col-xs-1">
+                <i class="glyphicon glyphicon-zoom-out"></i>
+            </div>
+
+            <div class="col-xs-10">
+                <input id="slider" type="range" min="1" max="200" value="1" style="width: 100%" />
+            </div>
+
+            <div class="col-xs-1">
+                <i class="glyphicon glyphicon-zoom-in"></i>
+            </div>
+        </p>
+        <!--<div class="text-center" id="drop-area" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">-->
+            <!--<strong>Drag one or more files to this Drop Zone ...</strong>-->
+        <!--</div>-->
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.4.0/wavesurfer.min.js"></script>
         <script src="js/spots.js"></script>

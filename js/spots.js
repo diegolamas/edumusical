@@ -192,5 +192,21 @@
         this.initRegions(), this.regions.enableDragSelection(a)
     }, a.disableDragSelection = function() {
         this.regions.disableDragSelection()
+    }, a.getRegions = function() {
+        console.log(this.regions.list);
+        var regiones = [];
+        for (var i = 0; i < this.regions.list.length; i++) {
+            console.log(i);
+            var reg = {};
+            reg.color = this.regions.list[i].color;
+            reg.start = this.regions.list[i].start;
+            regiones.add(reg);
+        }
+        console.log(regiones);
+        var a = document.createElement("a");
+        var file = new Blob([JSON.stringify(regiones)], {type: 'text/plain'});
+        a.href = URL.createObjectURL(file);
+        a.download = "out.txt";
+        //a.click();
     }
 });
