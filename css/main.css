@@ -297,14 +297,13 @@ textarea {
 }
 
 .wavesurfer-region {
-    border-radius: 50%;
-    width: 10px;
+    /* border-radius: 50%; */
+    width: 3px;
     position: absolute;
     z-index: 2;
-    height: 10px;
-    top: 50%;
+    height: 80%;
+    top: 10%;
     cursor: move;
-    margin-top: -5px;
 }
 
 .btn-red {
@@ -444,3 +443,6 @@ fieldset[disabled] .btn-blue.active {
     color: #1B71BD;
     background-color: #ffffff;
 }
+
+.mt-10 { margin-top: 10px; }
+.mb-10 { margin-bottom: 10px; }

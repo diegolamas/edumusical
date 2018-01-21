@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
+        <title>festis | Educación</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,36 +13,71 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">        <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
     </head>
-    <body>
+    <body onkeypress="keypress_handler(event, wavesurfer.getCurrentTime());">
         <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 
         <div class="text-center">
-            <h1>Bla bla</h1>
-            <button class="btn btn-sm btn-green" onclick="add_region_green(wavesurfer.getCurrentTime());">
-                <i class="fas fa-plus"></i>
-                Add
-            </button>
-            <button class="btn btn-sm btn-blue" onclick="add_region_blue(wavesurfer.getCurrentTime());">
-                <i class="fas fa-plus"></i>
-                Add
-            </button>
-            <button class="btn btn-sm btn-red" onclick="add_region_red(wavesurfer.getCurrentTime());">
-                <i class="fas fa-plus"></i>
-                Add
-            </button>
+            <h1 id="header">Bla bla</h1>
         </div>
-        <div ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+            <div class="text-center">
+                <button class="btn btn-sm btn-green" onclick="add_region_green(wavesurfer.getCurrentTime());">
+                    <i class="fas fa-plus"></i>
+                    Add (a)
+                </button>
+                <button class="btn btn-sm btn-blue" onclick="add_region_blue(wavesurfer.getCurrentTime());">
+                    <i class="fas fa-plus"></i>
+                    Add (s)
+                </button>
+                <button class="btn btn-sm btn-red" onclick="add_region_red(wavesurfer.getCurrentTime());">
+                    <i class="fas fa-plus"></i>
+                    Add (d)
+                </button>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="pull-right">
+                <input id="fileInput" type="file" class="hidden" onchange="load_data(this)" />
+                <button class="btn btn-sm btn-primary" onclick="document.getElementById('fileInput').click();">
+                    Open
+                    <i class="fas fa-folder-open"></i>
+                </button>
+                <button class="btn btn-sm btn-primary" onclick="export_data()">
+                    Save
+                    <i class="fas fa-download"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-xs-12 mt-10 mb-10" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
             <div id="waveform"></div>
         </div>
-        <div class="text-center">
-            <button class="btn btn-primary" onclick="wavesurfer.playPause()">
-                <i class="fas fa-play"></i>
-                Play
-            </button>
+
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+            <div class="text-center">
+                <button class="btn btn-sm btn-primary" onclick="wavesurfer.playPause()">
+                    <i class="fas fa-play"></i>
+                    Play
+                </button>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="pull-right">
+                <button class="btn btn-sm" onclick="delete_tool();">
+                    <i class="fas fa-times"></i>
+                    Remove (r)
+                </button>
+                <button class="btn btn-sm btn-danger" onclick="wavesurfer.clearRegions();">
+                    <i class="fas fa-trash"></i>
+                    Clear
+                </button>
+            </div>
         </div>
 
         <p class="row">

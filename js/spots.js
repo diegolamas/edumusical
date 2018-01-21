@@ -113,8 +113,8 @@
                 var c = Math.round(this.start / a * b),
                     d = Math.round(this.end / a * b) - c;
                 this.style(this.element, {
-                    left: c + "px",
-                    width: "10px", //d + "px",
+                    left: c - 3 + "px",
+                    width: "3px", //d + "px",
                     backgroundColor: this.color,
                     cursor: this.drag ? "move" : "default"
                 });
@@ -192,21 +192,18 @@
         this.initRegions(), this.regions.enableDragSelection(a)
     }, a.disableDragSelection = function() {
         this.regions.disableDragSelection()
-    }, a.getRegions = function() {
-        console.log(this.regions.list);
+    }, a.getRegions = function(nombre) {
         var regiones = [];
-        for (var i = 0; i < this.regions.list.length; i++) {
-            console.log(i);
+        Object.values(this.regions.list).forEach(function(element) {
             var reg = {};
-            reg.color = this.regions.list[i].color;
-            reg.start = this.regions.list[i].start;
-            regiones.add(reg);
-        }
-        console.log(regiones);
+            reg.color = element.color;
+            reg.start = element.start;
+            regiones.push(reg);
+        });
         var a = document.createElement("a");
         var file = new Blob([JSON.stringify(regiones)], {type: 'text/plain'});
         a.href = URL.createObjectURL(file);
-        a.download = "out.txt";
-        //a.click();
+        a.download = nombre + ".txt";
+        a.click();
     }
 });
