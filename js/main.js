@@ -97,5 +97,8 @@ var keypress_handler = function(e, sec) {
 
 // (de)activates delete tool
 var delete_tool = function() {
-    document.querySelector('.wavesurfer-region').onclick = function (element) {console.log("o"); element.remove();}
+    document.querySelector('.wavesurfer-region').onclick = function (element) {
+        var region_id = element.target.getAttribute("data-id");
+        wavesurfer.removeRegion(region_id);
+    }
 }

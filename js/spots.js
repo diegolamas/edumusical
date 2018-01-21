@@ -205,5 +205,15 @@
         a.href = URL.createObjectURL(file);
         a.download = nombre + ".txt";
         a.click();
+    }, a.removeRegion = function(region_id) {
+
+        Object.values(this.regions.list).forEach(function(element) {
+            if (element.id == region_id) element.remove();
+        });
     }
+
+
+
+
+
 });
