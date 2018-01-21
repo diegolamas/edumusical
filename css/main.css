@@ -446,3 +446,7 @@ fieldset[disabled] .btn-blue.active {
 
 .mt-10 { margin-top: 10px; }
 .mb-10 { margin-bottom: 10px; }
+
+.cursor-delete {
+    cursor: url(http://www.carvers.co.uk/images/delete-icon.gif), auto;
+}

@@ -96,9 +96,27 @@ var keypress_handler = function(e, sec) {
 }
 
 // (de)activates delete tool
+
+var delete_region = function(event) {
+    var region_id = event.target.getAttribute("data-id");
+    wavesurfer.removeRegion(region_id);
+    deactivate_delete_tool();
+}
+
+var deactivate_delete_tool = function() {
+    document.body.classList.remove("cursor-delete");
+    var regions = document.querySelectorAll('.wavesurfer-region');
+
+    for (var i = 0; i < regions.length; i++) {
+        regions[i].removeEventListener('click', delete_region);
+    }
+}
+
 var delete_tool = function() {
-    document.querySelector('.wavesurfer-region').onclick = function (element) {
-        var region_id = element.target.getAttribute("data-id");
-        wavesurfer.removeRegion(region_id);
+    document.body.classList.add("cursor-delete");
+    var regions = document.querySelectorAll('.wavesurfer-region');
+
+    for (var i = 0; i < regions.length; i++) {
+        regions[i].addEventListener('click', delete_region);
     }
 }
